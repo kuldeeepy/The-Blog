@@ -7,7 +7,7 @@ import { signOgImageUrl } from "@/lib/og-image";
 import { wisp } from "@/lib/wisp";
 import { notFound } from "next/navigation";
 import type { BlogPosting, WithContext } from "schema-dts";
-import DisqusComments from "@/components/DisqusComments";
+import DisqusComments from "@/components/DisqusComponents"
 
 const BASE_URL = 'https://kuldeep-blog.vercel.app';
 
