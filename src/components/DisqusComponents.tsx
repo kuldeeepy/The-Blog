@@ -1,7 +1,13 @@
 import { useEffect } from "react";
 import { DiscussionEmbed } from "disqus-react";
 
-const DisqusComments = ({ postUrl, identifier, title }) => {
+interface DisqusCommentsProps {
+  postUrl: string;
+  identifier: string;
+  title: string;
+}
+
+const DisqusComments: React.FC<DisqusCommentsProps> = ({ postUrl, identifier, title }) => {
   useEffect(() => {
     if (window.DISQUS) {
       window.DISQUS.reset({
