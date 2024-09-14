@@ -21,10 +21,12 @@ function DisqusComments({ post }: DisqusCommentsProps) {
   };
   
   return (
-    <DiscussionEmbed
+    <div className='my-8 p-4 bg-white shadow-md rounded-lg'>
+      <DiscussionEmbed
       shortname="beyondbytes-1"
       config={disqusConfig}
-    />
+      />
+    </div>
   );
 }
 
