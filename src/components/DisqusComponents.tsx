@@ -2,7 +2,17 @@
 import { DiscussionEmbed } from 'disqus-react';
 import React from 'react';
 
-function DisqusComments({ post }) {
+// Define the type for the post prop
+interface Post {
+  slug: string;
+  title: string;
+}
+
+interface DisqusCommentsProps {
+  post: Post;
+}
+
+function DisqusComments({ post }: DisqusCommentsProps) {
   const pageUrl = typeof window !== 'undefined' ? window.location.href : "";
   const disqusConfig = {
     url: pageUrl,
