@@ -7,7 +7,7 @@ import { signOgImageUrl } from "@/lib/og-image";
 import { wisp } from "@/lib/wisp";
 import { notFound } from "next/navigation";
 import type { BlogPosting, WithContext } from "schema-dts";
-import { DiscussionEmbed, CommentCount } from 'disqus-react';
+import DisqusComments from "@/components/DisqusComments";
 
 const BASE_URL = 'https://kuldeep-blog.vercel.app';
 
@@ -78,24 +78,11 @@ const Page = async ({ params: { slug } }: { params: Params }) => {
         <BlogPostContent post={result.post} />
         <RelatedPosts posts={posts} />
         <Footer />
-        <DiscussionEmbed
-          shortname='beyondbytes-1'
-          config={{
-            url: postUrl,
-            identifier: slug,
-            title: title,
-          }}
+        <DisqusComments
+          postUrl={postUrl}
+          identifier={slug}
+          title={title}
         />
-        <CommentCount
-          shortname='beyondbytes-1'
-          config={{
-            url: postUrl,
-            identifier: slug,
-            title: title,
-          }}
-        >
-          Comments
-        </CommentCount>
       </div>
     </>
   );
