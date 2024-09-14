@@ -9,8 +9,6 @@ import { notFound } from "next/navigation";
 import type { BlogPosting, WithContext } from "schema-dts";
 import DisqusComments from "@/components/DisqusComponents";
 
-const BASE_URL = 'https://kuldeep-blog.vercel.app';
-
 export async function generateMetadata({
   params: { slug },
 }: {
@@ -65,8 +63,6 @@ const Page = async ({ params: { slug } }: { params: Params }) => {
     },
   };
 
-  const postUrl = `${BASE_URL}/blog/${slug}`;
-
   return (
     <>
       <script
@@ -76,13 +72,9 @@ const Page = async ({ params: { slug } }: { params: Params }) => {
       <div className="container mx-auto px-5">
         <Header />
         <BlogPostContent post={result.post} />
+        <DisqusComments post={result.post} />
         <RelatedPosts posts={posts} />
         <Footer />
-        <DisqusComments
-          postUrl={postUrl}
-          identifier={slug}
-          title={title}
-        />
       </div>
     </>
   );
